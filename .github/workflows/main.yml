@@ -1,1 +1,41 @@
-
+name: jobworkflow
+on:
+    push:
+        branches:
+        - main
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: print message
+          run: echo "job 1 completed"
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+        - name: print message
+          run: echo "job 2 completed"
+    job3:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+        - name: print message
+          run: echo "job 3 completed"
+    job4:
+        runs-on: ubuntu-latest
+        needs: job2
+        steps:
+        - name: print message
+          run: echo "job 4 completed"
+    job5:
+        runs-on: ubuntu-latest
+        needs: job3
+        steps:
+        - name: print message
+          run: echo "job 4 completed"
+    job6:
+        runs-on: ubuntu-latest
+        needs: [job4,job5]
+        steps:
+        - name: print message
+          run: echo "job 4 completed"
