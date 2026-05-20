@@ -1,8 +1,14 @@
-def add(a, b):
-    return a+b
-def sub(a, b):
-    return a-b
-def mul(a, b):
-    return a*b
-def div(a, b):
-    return a/b
+# import pytest
+from calc import add,sub,mul,div
+
+def test_add():
+    assert add(10,20) == 30
+
+def test_sub():
+    assert add(10,5) == 5
+
+def test_mul():
+    assert add(10,20) == 200
+
+def test_div():
+    assert add(10,5) == 2
